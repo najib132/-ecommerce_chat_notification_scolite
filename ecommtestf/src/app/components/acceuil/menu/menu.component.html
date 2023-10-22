@@ -1,0 +1,71 @@
+<!-- page header -->
+<div class="page-header">
+                
+    <!-- page header holder -->
+    <div class="page-header-holder"> 
+        
+        <!-- page logo -->
+        <div class="logo">
+            <a routerLink="/">Atlant - Front-end Template</a>
+        </div>
+        <!-- ./page logo --> 
+        
+
+        <!-- search -->
+        <div class="search">
+            <div class="search-button"><span class="fa fa-search"></span></div>
+            <div class="search-container animated fadeInDown">
+                <form action="#" method="post">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search..."/>
+                        <div class="input-group-btn">
+                            <button class="btn btn-primary"><span class="fa fa-search"></span></button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- ./search -->
+
+        <!-- nav mobile bars -->
+        <div class="navigation-toggle">
+            <div class="navigation-toggle-button"><span class="fa fa-bars"></span></div>
+        </div>
+        <!-- ./nav mobile bars -->
+        
+        <!-- navigation -->
+        <ul class="navigation"> 
+            <li>
+                <a routerLink="/">Acceuil</a>
+            </li>
+            <li> 
+                <a routerLink="/tinghirs">Blog Tinghir</a> 
+            </li> 
+            <li>
+                <a routerLink="annonces/chat">Chat</a>
+            </li>
+            <li>
+                <a routerLink="/annonces">cherche Annonces</a>
+            </li>
+            <li>
+                <a routerLink="annonces/profil">Profil</a>
+            </li> 
+            <li>
+                <a routerLink="annonces/cart">Cart</a>
+            </li>
+            <li *ngIf="!currentUser">
+                <a routerLink="/login">Connexion</a>
+            </li>
+            <li *ngIf="!currentUser">
+                <a routerLink="/register">Inscription</a>
+            </li>
+            
+            <li *ngIf="currentUser" >
+                <button (click)="logOut()" class="btn-logOut">Deconnexion</button>
+            </li>
+        </ul> 
+        <!-- ./navigation -->                        
+    </div>
+    <!-- ./page header holder -->
+</div>
+<!-- ./page header --> 

@@ -1,0 +1,54 @@
+<div class="row">
+    <div class="col-md-12">
+      <div class="pull-left">
+        <a routerLink="/annonces/add" class="btn btn-primary btn-xl">Publier Annonce</a>
+      </div>
+    </div>
+</div>
+
+  <br>
+<div class="row">
+    <div class="col-md-12">
+        <input #query (keyup)="search(query.value)" type="text" class="aa-input-search" placeholder="cherche annonces ..."/>
+    </div>
+</div>
+<br>
+<div class="row"> 
+
+    <div class="col-md-12 gallery-filter">  
+        <div class="button-panel">
+            <button class="btn btn-primary mx-1" (click)="showAll()">All</button>
+            <button  class="btn btn-primary mx-1" *ngFor="let cat of category" (click)="filterAnnonces(cat)">{{ cat.name }}</button>
+        </div> 
+    </div> 
+ 
+
+<div class="row mix-grid thumbnails">  
+    <div class="col-md-3 col-xs-12" *ngFor="let annonce of searchAnnonce|slice:0:count*36">
+        <div class="blog-item" data-animate="fadeInUp">
+          <a [routerLink]="['/annonces/show/', annonce.slug ]" > 
+            <div class="blog-media">
+              <img src="{{ annonce.image }}" class="img-responsive" style="width: 240px;height: 240px" /> 
+            </div>
+          </a> 
+          <div class="blog-data">
+                <a [routerLink]="['/annonces/show/', annonce.slug ]" > 
+                <h5>{{ annonce.slug }}</h5>
+                <span class="blog-date">{{ annonce.created }} / 0 Comment</span>
+                <p>{{ annonce.description.substr(0 ,31) }}...</p>
+                </a> 
+                <div class="col-md-3 ">
+                    <a routerLink="/annonces/edit/{{ annonce.slug }}" class="btn btn-primary"><span class="fa fa-edit"></span></a>
+                </div>    
+                <div class="col-md-3 ">
+                    <button class="btn btn-primary" (click)="deleteAnnonce(annonce)"><span class="fa fa-times"></span></button>
+                </div>  
+          </div> 
+      </div> 
+  </div> 
+  <div class="col-md-12 col-md-offset-4" *ngIf="annonces">
+      <button class="btn btn-primary btn-lg" *ngIf="count*4 < annonces.length" (click)="count=count+1">See More...</button>
+  </div>
+</div> 
+
+ 

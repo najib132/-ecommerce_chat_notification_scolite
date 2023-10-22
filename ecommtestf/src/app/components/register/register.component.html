@@ -1,0 +1,131 @@
+<div class="col-md-8 col-md-offset-2">
+    <div class="panel panel-default" style="background-color:#DCDCDC">
+     <div class="panel-heading" >Register</div>
+      <div class="panel-body">
+         <div class="col-md-8 col-md-offset-2">
+  
+          <form>
+                     
+          
+           <div class="form-group">
+             <label>Nom Prenom <span class="text-hightlight">*</span></label>
+               <input id="name" type="text" class="form-control " name="name"  required autocomplete="name" autofocus>
+                  <span class="invalid-feedback text-danger" role="alert">
+                      <strong>message </strong>
+                  </span>
+           </div>
+          
+           <div class="form-group">
+             <label>E-Mail Address <span class="text-hightlight">*</span></label>
+             <input id="email" type="email" class="form-control" name="email" required autocomplete="email">
+                  <span class="invalid-feedback text-danger" role="alert">
+                      <strong>message </strong>
+                  </span>
+           </div>
+          
+          <div class="form-group">
+              <label>telephone(06 XX XX XX XX) <span class="text-hightlight">*</span></label>
+              <input type="text" name="telephone" class="form-control" id="phone" required autocomplete="telephone"/>
+                  <span class="invalid-feedback text-danger" role="alert">
+                      <strong>message </strong>
+                  </span>
+          </div>
+  
+          <div class="form-group">
+              <label>date naissance(dd/mm/aaaa) <span class="text-hightlight">*</span></label> 
+              <input type="date" name="daten" class="form-control" id="phone" required autocomplete="daten" style="width:350px"/>
+                  <span class="invalid-feedback text-danger" role="alert">
+                      <strong>message </strong>
+                  </span>
+          </div>
+  
+          <div class="form-group">
+            <label>ville <span class="text-hightlight">*</span></label>
+            <select id="country" name="country_id" class="form-control" style="width:350px" required autocomplete="country_id" >
+            <option value="" selected disabled>Select</option>
+              <option value=""> country</option>
+              </select> 
+          </div>
+  
+          <div class="form-group">
+              <label>Douar<span class="text-hightlight">*</span></label>
+              <select name="state_id" id="state" class="form-control" style="width:350px" required autocomplete="state_id">
+              </select>
+          </div> 
+  
+          <div class="form-group" id="divi">
+              <label>Autre Douar<span class="text-hightlight">*</span></label>
+              <input type="text" name="autrei"  class="form-control" style="width:350px" required autocomplete="autrei"/>
+          </div>
+  
+          <div class="form-group">
+              <label>hay<span class="text-hightlight">*</span></label>
+              <select name="city_id" id="city" class="form-control" style="width:350px">
+              </select>
+          </div>
+  
+          <div class="form-group" id="divh">
+              <label>Autre hay<span class="text-hightlight">*</span></label>
+              <input type="text" name="autreh" class="form-control" style="width:350px" required autocomplete="autreh"/>
+                  <span class="invalid-feedback text-danger" role="alert">
+                      <strong>message </strong>
+                  </span>
+          </div>
+  
+          <div class="form-group">
+              <label>adresse mahal <span class="text-hightlight">*</span></label>
+              <input type="text" name="adressem" class="form-control" required autocomplete="adressem"/>
+                  <span class="invalid-feedback text-danger" role="alert">
+                      <strong>message </strong>
+                  </span>
+          </div>
+  
+          <div class="form-group">
+              <label>adresse residence <span class="text-hightlight">*</span></label>
+              <input type="text" name="adresser" class="form-control" required autocomplete="adresser"/>
+                  <span class="invalid-feedback text-danger" role="alert">
+                      <strong>message </strong>
+                  </span>
+          </div>
+         
+           <div class="form-group">
+            <label>Password <span class="text-hightlight">*</span></label>
+            <input id="password" type="password"  class="form-control" name="password" required autocomplete="new-password">
+                  <span class="invalid-feedback text-danger" role="alert">
+                      <strong>message </strong>
+                  </span>
+           </div>
+       
+           <div class="form-group">
+            <label>Confirm Password <span class="text-hightlight">*</span></label>
+            <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+           </div>
+  
+          <div class="form-group">
+              <label>photo<span class="text-hightlight">*</span></label>
+              <input class="form-control" type="file" name="image" >
+                  <span class="invalid-feedback text-danger" role="alert">
+                      <strong>message </strong>
+                  </span>
+          </div>
+  
+          <div class="form-group">
+              <label>photos<span class="text-hightlight">*</span></label>
+              <input class="form-control" type="file" name="images[]"  multiple>
+                  <span class="invalid-feedback text-danger" role="alert">
+                      <strong>message</strong>
+                  </span>
+          </div>
+          
+           <div class="col-md-6 offset-md-4">
+              <button type="submit" class="btn btn-primary">
+                  Register
+              </button>
+           </div>
+         </form>
+   
+  
+         </div>
+      </div>
+     </div>
+    </div>

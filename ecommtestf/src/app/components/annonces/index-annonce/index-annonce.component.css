@@ -1,0 +1,30 @@
+
+
+.aa-input-search {
+    width: 400px;
+    padding: 12px 28px 12px 12px;
+    border: 2px solid #e4e4e4;
+    border-radius: 4px;
+    -webkit-transition: .2s;
+    transition: .2s;
+    font-family: "Montserrat", sans-serif;
+    box-shadow: 4px 4px 0 rgba(241, 241, 241, 0.35);
+    font-size: 12px;
+    box-sizing: border-box;
+    color: #333;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none; }
+    .aa-input-search::-webkit-search-decoration, .aa-input-search::-webkit-search-cancel-button, .aa-input-search::-webkit-search-results-button, .aa-input-search::-webkit-search-results-decoration {
+    display: none; }
+    .aa-input-search:focus {
+    outline: 0;
+    border-color: #3a96cf;
+    box-shadow: 4px 4px 0 rgba(58, 150, 207, 0.1); }
+    
+    .btn-primary {
+        background-color: #e0401d;
+        border-color: #d73d1c;
+      }
+    
+    

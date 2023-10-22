@@ -1,0 +1,19 @@
+<div class="row mix-grid thumbnails">
+    <div class="col-md-3 col-xs-12" *ngFor="let annonce of annonces|slice:0:count*36">
+        <a [routerLink]="['/annonces/show/', annonce.slug ]"> 
+            <div class="blog-item" data-animate="fadeInUp">
+                <div class="blog-media">
+                    <img src="{{ annonce.image }}" class="img-responsive" style="width: 240px;height: 240px" /> 
+                </div>
+                <div class="blog-data">
+                    <h5>{{ annonce.details }}</h5>
+                    <span class="blog-date">{{ annonce.created }} / 0 Comments</span>
+                    <p>{{ annonce.description.substr(0 ,31) }}...</p>
+                </div> 
+            </div>
+        </a> 
+    </div>  
+    <div class="col-md-12 col-md-offset-4" *ngIf="annonces">
+        <button class="btn btn-primary btn-lg" *ngIf="count*4 < annonces.length" (click)="count=count+1">See More...</button>
+    </div>
+</div>   

@@ -1,0 +1,58 @@
+<div class="page-content">
+
+   
+    <div class="page-content-wrap">                    
+     <div class="page-content-holder"> 
+      
+        <div class="panel-body">
+         <div class="row">
+          <div class="col-md-8 col-md-offset-2">
+
+            <form #f="ngForm" (ngSubmit)="addTinghir(f)"> 
+
+             <div class="panel panel-default" style="background-color:#DCDCDC">
+              <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                  <div class="form-group">
+                    <label>Titre <span class="text-hightlight">*</span></label>
+                    <input type="text" [(ngModel)]="tinghir.titre" #titre="ngModel" name="titre" class="form-control" [ngClass]="{ 'is-invalid': titre.errors && titre.touched }" required/>
+                        <div [hidden]="!titre.errors?.required" class="invalid-feedback">
+                          titre is required
+                      </div> 
+                  </div>
+                  <div class="form-group">
+                    <label>image article<span class="text-hightlight">*</span></label>
+                    <input type="file" [(ngModel)]="tinghir.image" #image="ngModel" name="image" class="form-control" (change)="fileEvent($event)" [ngClass]="{ 'is-invalid': image.errors && image.touched }" required>
+                        <div [hidden]="!image.errors?.required" class="invalid-feedback">
+                          image is required
+                      </div> 
+                  </div>
+                </div>  
+              </div>    
+             </div> 
+
+             <angular-editor [(ngModel)]="tinghir.description"  #description="ngModel" name="description" [ngClass]="{ 'is-invalid': description.errors && description.touched }" required></angular-editor>
+              <div [hidden]="!description.errors?.required" class="invalid-feedback">
+                description is required
+              </div> 
+              
+              {{ tinghir | json }}
+              <br>
+              <hr>
+             <div class="panel panel-default" style="background-color:#DCDCDC">
+              <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                  <button class="btn btn-primary btn-lg pull-left" [disabled]="!f.valid" type="submit">Partager Article</button>
+                </div>
+              </div>
+             </div>
+            </form>     
+          </div>
+         </div>
+       </div>
+      </div>
+     
+</div>
+
+
+

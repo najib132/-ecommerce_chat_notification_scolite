@@ -1,0 +1,5 @@
+{
+    "require": {
+        "hardevine/shoppingcart": "^3.2"
+    }
+}

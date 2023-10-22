@@ -1,0 +1,48 @@
+                        
+                         <div class="row">
+                            <div class="col-md-12">
+                               <div class="col-md-6">
+                                    <div class="text-left">
+                                    <button routerLink="/tinghirs/add"  class="btn btn-success btn-xl">Publier Article</button>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <h2 class="text-right"> يوجد  <b>80 </b>مقال حول اقليم تنغير </h2>
+                                </div>
+                            </div> 
+                        </div>   
+                         
+                          
+                        <div class="block-heading-text text-right">
+                           إقليم تنغير هو أحد أقاليم المملكة المغربية. يقع إقليم تنغير وسط المملكة ضمن جهة درعة تافيلالت.
+تنغير المحدث مؤخرا يمتد جغرافيا بين اقليمي ورزازات من الغرب والراشيدية من الشرق ويضم ساكنة تقدر بنحو:289550 نسمة  بكثافة سكانية تناهز ال 21 نسمة في الكيلومتر المربع الواحد وهي كثافة مهمة إذا قورنت بالكثير من الأقاليم بالمملكة. هؤلاء السكان يتوزعون على 3 جماعات حضرية. اقليم تنغير يمتد على مساحة تناهز 13619 كيلومتر مربع.
+                        </div>   
+
+                       <div class="row mix-grid thumbnails"> 
+                           <div class="col-md-6 col-xs-6" *ngFor="let tinghir of tinghirs|slice:0:count*36">
+                             
+                               <div class="blog-item" data-animate="fadeInUp">
+                                   <a [routerLink]="['/tinghirs/show/', tinghir.slug ]">  
+                                       <div class="blog-media">
+                                           <img src="{{ tinghir.image }}" class="img-responsive" style="width: 600px;height: 600px" /> 
+                                       </div>
+                                   </a>
+                                   <div class="blog-data">
+                                       <a [routerLink]="['/tinghirs/show/', tinghir.slug ]">  
+                                           <h5>{{ tinghir.slug }}</h5>
+                                           <span class="blog-date">{{ tinghir.created }} / 0 Comments</span>
+                                           <p>{{! tinghir.description.substr(0 ,31) !}}...</p>
+                                       </a>
+                                       <div>
+                                           <button routerLink="/tinghirs/edit/{{ tinghir.slug }}" class="btn btn-success"><span class="fa fa-edit"></span></button>
+                                           <button type="submit" class="btn btn-success mx-1" (click)="deleteTinghir(tinghir)"><span class="fa fa-times"></span></button>
+                                       </div>
+                                   </div> 
+                               </div>
+                           </div>  
+                           <div class="col-md-12 col-md-offset-4" *ngIf="tinghirs">
+                               <button class="btn btn-success btn-lg" *ngIf="count*4 < tinghirs.length" (click)="count=count+1">See More...</button>
+                           </div>
+                       </div>   
+
+

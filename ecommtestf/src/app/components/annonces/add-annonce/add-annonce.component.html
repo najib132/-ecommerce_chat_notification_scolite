@@ -1,0 +1,386 @@
+<div class="col-md-8 col-md-offset-2">
+    <div class="panel panel-default" style="background-color:#DCDCDC">
+     <div class="panel-heading" >publier Annonce</div>
+      <div class="panel-body">
+       <div class="row">
+         <div class="col-md-8 col-md-offset-2"> 
+       
+           <form #f="ngForm" (ngSubmit)="onSubmitform(f)">    
+ 
+              <div class="form-group">   
+                <label>Category <span class="text-hightlight">*</span></label>
+                <select  class="form-control" name="category_id" [(ngModel)]="annonce.category_id" #category_id="ngModel" [ngClass]="{ 'is-invalid': category_id.errors && category_id.touched }" required (change)="ChangeCategory($event)">
+                   <option [value]="0">--select--</option>
+                   <option [value]="category.id" *ngFor="let category of categories" >{{ category.name }}</option>
+                </select>
+                <div [hidden]="!category_id.errors?.required" class="invalid-feedback">
+                    Category is required 
+                </div> 
+              </div>  
+
+              <div class="form-group">
+                <label>Souscategories <span class="text-hightlight">*</span></label>
+                <select  class="form-control" name="souscategory_id" [(ngModel)]="annonce.souscategory_id" #souscategory_id="ngModel" [ngClass]="{ 'is-invalid': souscategory_id.errors && souscategory_id.touched }" required (change)="ChangeSoucategory($event)">
+                    <option></option>
+                   <option [value]="souscategory.id" *ngFor="let souscategory of souscategoriesea" >{{ souscategory.name }} {{ souscategory.id }}</option>
+                </select>
+                <div [hidden]="!souscategory_id.errors?.required" class="invalid-feedback">
+                    Sousategory is required
+                </div>
+              </div> 
+
+                <div class="col-md-12" *ngIf="soucategory_id==6 || soucategory_id==7 || soucategory_id==8 || soucategory_id==9 || soucategory_id==10 || soucategory_id==11 || soucategory_id==12 || soucategory_id==13 || soucategory_id==14 || soucategory_id==15 || soucategory_id==16 || soucategory_id==17 || soucategory_id==18 || soucategory_id==19 || soucategory_id==20 || soucategory_id==21 || soucategory_id==21 || soucategory_id==22 || soucategory_id==23 || soucategory_id==24 || soucategory_id==25 || soucategory_id==26 || soucategory_id==27 || soucategory_id==28 || soucategory_id==29 || soucategory_id==30 || soucategory_id==31 || soucategory_id==32 || soucategory_id==33 || soucategory_id==37 || soucategory_id==38 || soucategory_id==39 || soucategory_id==40 || soucategory_id==41 || soucategory_id==42 || soucategory_id==43">
+                        <div class="form-group col-md-4">
+                         <label for="type">type</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="type" [(ngModel)]="annonce.type" #type="ngModel" id="type1" value="0" checked>
+                          <label class="form-check-label" for="inlineRadio1">offre</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="type" [(ngModel)]="annonce.type" #type="ngModel" id="type2" value="1">
+                          <label class="form-check-label" for="inlineRadio2">demande</label>
+                        </div>
+                         
+                        {{ annonce.type }}
+                </div>
+
+                <div class="form-group" *ngIf="soucategory_id==1 || soucategory_id==2 || soucategory_id==3 || soucategory_id==4">
+                    <label>Domaine <span class="text-hightlight">*</span></label>
+                    <select class="form-control" name="domaine" [(ngModel)]="annonce.domaine" #domaine="ngModel" [ngClass]="{ 'is-invalid': domaine.errors && domaine.touched }" required>
+                        <option></option>
+                        <option>Accueil / Secrétariat / Administration</option>
+                        <option>Agriculture / Environnement / Espaces Verts</option>
+                        <option>Automobile</option>
+                        <option>Banque / Finance / Assurance</option>
+                        <option>Biologie / Chimie / Pharmaceutique</option>
+                        <option>Commerce / Artisanat</option>
+                        <option>Commercial / Vente</option>
+                        <option>Comptabilité / Gestion / Audit</option>
+                        <option>Construction / Btp</option>
+                        <option>Droit / Justice / Association</option>
+                        <option>Education / Social / Petite Enfance</option>
+                        <option>Entreprise / Import / Export</option>
+                        <option>Grande Distribution</option>
+                        <option>Immobilier</option>
+                        <option>Industrie / Ingénierie / Energie</option>
+                        <option>Informatique / Multimédia / Internet</option>
+                        <option>International / Télécommunication</option>
+                        <option>Maintenance / Entretien</option>
+                        <option>Marketing / Communication / Publicité / Rp</option>
+                        <option>Mode / Luxe / Beauté</option>
+                        <option>Médias / Art / Culture</option>
+                        <option>Ressources Humaines / Recrutement / Intérim</option>
+                        <option>Santé / Médical</option>
+                        <option>Secteur Public</option>
+                        <option>Services aux Entreprises / Formation</option>
+                        <option>Services à La Personne</option>
+                        <option>Sécurité / Surveillance / Gardiennage</option>
+                        <option>Tourisme / Hôtellerie / Restauration</option>
+                        <option>Transport / Achat / Logistique</option>
+                        <option>Urbanisme / Architecture / Aménagement</option>
+                        <option>Édition / Imprimerie / Journalisme</option>
+                        <option>Autre</option>
+                    </select>
+                    <div [hidden]="!domaine.errors?.required" class="invalid-feedback">
+                        domaine is required
+                    </div>
+                    {{ annonce.domaine }}
+                </div>
+                
+                <div class="form-group" *ngIf="soucategory_id==1">
+                    <label>Contrat <span class="text-hightlight">*</span></label>
+                        <select class="form-control" name="contrat" [(ngModel)]="annonce.contrat" #contrat="ngModel" [ngClass]="{ 'is-invalid': contrat.errors && contrat.touched }" required>
+                            <option></option>
+                            <option>sans</option>
+                            <option>CDI</option>
+                            <option>CDD</option>
+                            <option>Anapec</option>
+                            <option>Inditerminer</option>
+                            <option>Stage</option>
+                            <option>A discuter</option>
+                        </select>
+                        <div [hidden]="!contrat.errors?.required" class="invalid-feedback">
+                            contrat is required
+                        </div>
+                        {{ annonce.contrat }} 
+                </div>
+            
+                <div class="form-group" *ngIf="soucategory_id==1" >
+                    <label>Entreprise <span class="text-hightlight">*</span></label>
+                    <input type="text" class="form-control" name="entreprise" [(ngModel)]="annonce.entreprise" #entreprise="ngModel" [ngClass]="{ 'is-invalid': entreprise.errors && entreprise.touched }" required/>
+                    <div [hidden]="!entreprise.errors?.required" class="invalid-feedback">
+                        entreprise is required
+                    </div>
+                    {{ annonce.entreprise }}
+                </div>
+
+                <div class="form-group" *ngIf="soucategory_id==1">
+                <label>Salaire <span class="text-hightlight">*</span></label>
+                        <select name="salaire" class="form-control" name="salaire" [(ngModel)]="annonce.salaire" #salaire="ngModel" [ngClass]="{ 'is-invalid': salaire.errors && salaire.touched }" required>
+                            <option></option>
+                            <option>A discuter</option>
+                            <option>commssioni</option>
+                            <option>2000-3000</option>
+                            <option>3000-4000</option>
+                            <option>4000-6000</option>
+                            <option>6000-8000</option>
+                            <option>8000-10000</option>
+                            <option>Plus de 10000</option>
+                            <option>Plus de 20000</option>
+                            <option>Plus de 30000</option>
+                        </select>
+                        <div [hidden]="!salaire.errors?.required" class="invalid-feedback">
+                            salaire is required
+                        </div>
+                </div>
+
+                <div class="form-group" *ngIf="soucategory_id==1 || soucategory_id==2 || soucategory_id==3">
+                <label>Niveau etude <span class="text-hightlight">*</span></label>
+                        <select name="niveaua" class="form-control" [(ngModel)]="annonce.niveaua" #niveaua="ngModel" [ngClass]="{ 'is-invalid': niveaua.errors && niveaua.touched }" required>
+                            <option [value]="0"></option> 
+                            <option [value]="1">Pas important</option> 
+                            <option [value]="2">Niveau bac</option> 
+                            <option [value]="3">Bac plus 2</option> 
+                            <option [value]="4">Bac plus 3</option> 
+                            <option [value]="5">Bac plus 4</option> 
+                            <option [value]="6">Bac plus 5</option> 
+                        </select>
+                        <div [hidden]="!niveaua.errors?.required" class="invalid-feedback">
+                            Niveau etude is required
+                        </div>
+                </div>
+
+                <div class="form-group" *ngIf="soucategory_id==2 || soucategory_id==3 || soucategory_id==4">
+                <label>Poste <span class="text-hightlight">*</span></label>
+                        <select class="form-control" name="poste" [(ngModel)]="annonce.poste" #poste="ngModel" [ngClass]="{ 'is-invalid': poste.errors && poste.touched }"  required>
+                            <option></option> 
+                            <option>Plien temps</option> 
+                            <option>Mi-temps</option> 
+                        </select>
+                        <div [hidden]="!poste.errors?.required" class="invalid-feedback">
+                            poste is required
+                        </div>
+                        {{ annonce.poste }}
+                </div>
+
+                <div class="form-group col-md-12" >
+                    <div class="form-group col-md-6" *ngIf="soucategory_id==8 || soucategory_id==10">
+                    <label>Marque <span class="text-hightlight">*</span></label>
+                            <select class="form-control" name="marque" [(ngModel)]="annonce.marque" #marque="ngModel" [ngClass]="{ 'is-invalid': marque.errors && marque.touched }"  required>
+                                <option></option> 
+                                <option>Dacia</option> 
+                                <option>Audi</option> 
+                            </select>
+                            <div [hidden]="!marque.errors?.required" class="invalid-feedback">
+                                marque is required
+                            </div>
+                            {{ annonce.marque }} 
+                    </div>
+                    <div class="form-group col-md-6" *ngIf="soucategory_id==7 || soucategory_id==9">
+                            <label>Marque <span class="text-hightlight">*</span></label>
+                            <select class="form-control" name="marquem" [(ngModel)]="annonce.marquem" #marquem="ngModel" [ngClass]="{ 'is-invalid': marquem.errors && marquem.touched }" required>
+                                <option></option> 
+                                <option>new wave</option> 
+                                <option>motobecane</option> 
+                            </select>
+                            <div [hidden]="!marquem.errors?.required" class="invalid-feedback">
+                                marque is required
+                            </div>
+                            {{ annonce.marquem }}
+                    </div>
+
+                    <div class="form-group col-md-6" *ngIf="soucategory_id==8 || soucategory_id==10">
+                    <label>Modele <span class="text-hightlight">*</span></label>
+                        <select class="form-control" name="modele" [(ngModel)]="annonce.modele" #modele="ngModel" [ngClass]="{ 'is-invalid': modele.errors && modele.touched }" required>
+                            <option></option> 
+                            <option>Logan</option> 
+                            <option>Duster</option> 
+                        </select>
+                        <div [hidden]="!modele.errors?.required" class="invalid-feedback">
+                            Modele is required
+                        </div>
+                        {{ annonce.modele }}
+                    </div>
+                </div>
+
+                <div class="form-group col-md-12" >
+                    <div class="form-group col-md-6" *ngIf="soucategory_id==8 || soucategory_id==10">
+                    <label>Annee <span class="text-hightlight">*</span></label>
+                        <select class="form-control" name="annee" [(ngModel)]="annonce.annee" #annee="ngModel" [ngClass]="{ 'is-invalid': annee.errors && annee.touched }" required>
+                            <option></option> 
+                            <option>2020</option> 
+                            <option>2019</option> 
+                        </select>
+                        <div [hidden]="!annee.errors?.required" class="invalid-feedback">
+                            Annee is required
+                        </div>
+                        {{ annonce.annee }}
+                    </div>
+
+                    <div class="form-group col-md-6" *ngIf="soucategory_id==8">
+                        <label>Kilometrage <span class="text-hightlight">*</span></label>
+                        <input type="text" class="form-control" name="km" [(ngModel)]="annonce.km" #km="ngModel" [ngClass]="{ 'is-invalid': km.errors && km.touched }" required/>
+                        <div [hidden]="!km.errors?.required" class="invalid-feedback">
+                            Kilometrage is required
+                        </div>
+                        {{ annonce.km }}
+                    </div>
+                </div>
+
+                <div class="form-group col-md-12" >
+                    <div class="form-group col-md-6" *ngIf="soucategory_id==8">
+                    <label>Carburant <span class="text-hightlight">*</span></label>
+                        <select class="form-control" name="carburant" [(ngModel)]="annonce.carburant" #carburant="ngModel" [ngClass]="{ 'is-invalid': carburant.errors && carburant.touched }" required>
+                            <option></option> 
+                            <option>Diesel</option> 
+                            <option>Essence</option> 
+                        </select>
+                        <div [hidden]="!carburant.errors?.required" class="invalid-feedback">
+                            carburant is required
+                        </div>
+                        {{ annonce.carburant }}
+                    </div>
+                    <div class="form-group col-md-6" *ngIf="soucategory_id==8">
+                    <label>Puissance <span class="text-hightlight">*</span></label>
+                        <select class="form-control" name="puissance" [(ngModel)]="annonce.puissance" #puissance="ngModel" [ngClass]="{ 'is-invalid': puissance.errors && puissance.touched }" required>
+                            <option></option> 
+                            <option>4 CV</option> 
+                            <option>5 CV</option> 
+                        </select>
+                        <div [hidden]="!puissance.errors?.required" class="invalid-feedback">
+                            puissance is required
+                        </div>
+                        {{ annonce.puissance }}
+                    </div>
+                </div>
+            
+                <div class="form-group" *ngIf="soucategory_id==10">
+                <label>Nom piece <span class="text-hightlight">*</span></label>
+                        <select class="form-control" name="piece" [(ngModel)]="annonce.piece" #piece="ngModel" [ngClass]="{ 'is-invalid': piece.errors && piece.touched }" (change)="ChangePiece($event)" required>
+                            <option [value]="0"></option> 
+                            <option [value]="1">piece 1 </option> 
+                            <option [value]="2">piece 2 </option> 
+                            <option [value]="3">autre </option> 
+                        </select>
+                        <div [hidden]="!piece.errors?.required" class="invalid-feedback">
+                            nom piece is required
+                        </div>
+                        {{ annonce.piece }}
+                </div>
+
+                <div class="form-group" *ngIf="soucategory_id==10 && piece_id == 3">
+                    <label>autre piece <span class="text-hightlight">*</span></label>
+                    <input type="text" class="form-control" name="autrepi" [(ngModel)]="annonce.autrepi" #autrepi="ngModel" [ngClass]="{ 'is-invalid': autrepi.errors && autrepi.touched }" required/>
+                    <div [hidden]="!autrepi.errors?.required" class="invalid-feedback">
+                        autre piece is required
+                    </div>
+                    {{ annonce.autrepi }}
+                </div>
+
+                <div class="form-group" *ngIf="soucategory_id==11 || soucategory_id==12 || soucategory_id==13 || soucategory_id==14 || soucategory_id==15 || soucategory_id==16 || soucategory_id==17 || soucategory_id==18 || soucategory_id==19">
+                    <label>surface m2 <span class="text-hightlight">*</span></label>
+                    <input type="text" class="form-control" name="surface" [(ngModel)]="annonce.surface" #surface="ngModel" [ngClass]="{ 'is-invalid': surface.errors && surface.touched }" required/>
+                    <div [hidden]="!surface.errors?.required" class="invalid-feedback">
+                        surface is required
+                    </div>
+                    {{ annonce.surface }}
+                </div>
+
+                <div class="form-group" *ngIf="soucategory_id==11 || soucategory_id==12 || soucategory_id==13 || soucategory_id==14 || soucategory_id==16 || soucategory_id==17 || soucategory_id==18">
+                <label>Nombre des chambres <span class="text-hightlight">*</span></label>
+                        <select class="form-control" name="chambre" [(ngModel)]="annonce.chambre" #chambre="ngModel" [ngClass]="{ 'is-invalid': chambre.errors && chambre.touched }" required>
+                            <option> 0 </option> 
+                            <option> 1 </option> 
+                            <option> 2 </option> 
+                            <option> 3 </option> 
+                            <option> 4 </option> 
+                            <option> +4 </option> 
+                        </select>
+                        <div [hidden]="!chambre.errors?.required" class="invalid-feedback">
+                            chambre is required
+                        </div>
+                        {{ annonce.chambre }}
+                </div>
+
+                <div class="form-group" *ngIf="soucategory_id==11 || soucategory_id==12 || soucategory_id==13 || soucategory_id==14 || soucategory_id==16 || soucategory_id==17 || soucategory_id==18">
+                <label>Nombre salles de bain <span class="text-hightlight">*</span></label>
+                        <select class="form-control" name="salleb" [(ngModel)]="annonce.salleb" #salleb="ngModel" [ngClass]="{ 'is-invalid': salleb.errors && salleb.touched }" required>
+                            <option> 0 </option> 
+                            <option> 1 </option> 
+                            <option> 2 </option> 
+                            <option> 3 </option> 
+                            <option> 4 </option> 
+                            <option> +4 </option> 
+                        </select>
+                        <div [hidden]="!salleb.errors?.required" class="invalid-feedback">
+                            chambre is required
+                        </div>
+                        {{ annonce.salleb }}
+                </div>
+
+                <div class="form-group" *ngIf="soucategory_id==15">
+                <label>Nombre des faces <span class="text-hightlight">*</span></label>
+                        <select class="form-control" name="faces" [(ngModel)]="annonce.faces" #faces="ngModel" required>
+                            <option> 0 </option> 
+                            <option> 1 </option> 
+                            <option> 2 </option> 
+                            <option> 3 </option> 
+                            <option> 4 </option> 
+                        </select>
+                        <div [hidden]="!faces.errors?.required" class="invalid-feedback">
+                            nombre des faces is required
+                        </div>
+                        {{ annonce.faces }}
+                </div>
+
+                <div class="form-group">
+                    <label>Titre <span class="text-hightlight">*</span></label>
+                    <input type="text" class="form-control" name="name" [(ngModel)]="annonce.name" #name="ngModel" [ngClass]="{ 'is-invalid': name.errors && name.touched }" required/>
+                    <div [hidden]="!name.errors?.required" class="invalid-feedback">
+                        titre is required
+                    </div> 
+                    {{ annonce.name }}
+                </div>
+
+                <div class="form-group">
+                    <label>Description <span class="text-hightlight">*</span></label>
+                    <textarea type="text" class="form-control area" name="description" [(ngModel)]="annonce.description" #description="ngModel" [ngClass]="{ 'is-invalid': description.errors && description.touched }" required></textarea>
+                    <div [hidden]="!description.errors?.required" class="invalid-feedback">
+                        description is required
+                    </div>
+                    
+                    {{ annonce.description }}
+                </div>
+
+                <div class="form-group" *ngIf="soucategory_id==6 || soucategory_id==7 || soucategory_id==8 || soucategory_id==9 || soucategory_id==10 || soucategory_id==11 || soucategory_id==12 || soucategory_id==13 || soucategory_id==14 || soucategory_id==15 || soucategory_id==16 || soucategory_id==17 || soucategory_id==18 || soucategory_id==19 || soucategory_id==20 || soucategory_id==21 || soucategory_id==21 || soucategory_id==22 || soucategory_id==23 || soucategory_id==24 || soucategory_id==25 || soucategory_id==26 || soucategory_id==27 || soucategory_id==28 || soucategory_id==29 || soucategory_id==30 || soucategory_id==31 || soucategory_id==32 || soucategory_id==33 || soucategory_id==37 || soucategory_id==38 || soucategory_id==39 || soucategory_id==40 || soucategory_id==41 || soucategory_id==42 || soucategory_id==43">
+                    <label>prix (DH) <span class="text-hightlight">*</span></label>
+                    <input type="text" class="form-control" name="prix" [(ngModel)]="annonce.prix" #prix="ngModel" [ngClass]="{ 'is-invalid': prix.errors && prix.touched }" required/>
+                    <div [hidden]="!prix.errors?.required" class="invalid-feedback">
+                        prix is required
+                    </div>
+                    {{ annonce.prix }}
+                </div> 
+ 
+                <div class="form-group">
+                    <label>image annonce<span class="text-hightlight">*</span></label>
+                    <input type="file"  name="image" [(ngModel)]="annonce.image" #image="ngModel" [ngClass]="{ 'is-invalid': image.errors && image.touched }" required (change)="fileEvent($event)"/>
+                    <div [hidden]="!image.errors?.required" class="invalid-feedback">
+                        image is required
+                    </div>
+                    {{ annonce.image }} 
+                </div>
+
+                
+        
+                <button class="btn btn-primary btn-lg pull-left" type="submit" [disabled]="!f.valid">Partager Annonce</button>
+        </form>
+         
+
+       </div>
+      </div>
+     </div>
+    </div>
+</div>
+
+	     
